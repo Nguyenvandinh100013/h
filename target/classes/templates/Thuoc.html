@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="(link unavailable)">
+<head>
+    <title>Thuốc</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a th:href="@{/}">Trang chủ</a></li>
+            <li><a th:href="@{/thuoc}">Thuốc</a></li>
+            <li><a th:href="@{/dang-nhap}">Đăng nhập</a></li>
+            <li><a th:href="@{/dang-ky}">Đăng ký</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h1>Thuốc</h1>
+    <table>
+        <tr>
+            <th>Tên thuốc</th>
+            <th>Giá</th>
+            <th>Mô tả</th>
+        </tr>
+        <tr th:each="thuoc : ${thuocs}">
+            <td th:text="${thuoc.ten}"></td>
+            <td th:text="${thuoc.gia}"></td>
+            <td th:text="${thuoc.moTa}"></td>
+        </tr>
+    </table>
+</main>
+</body>
+</html>

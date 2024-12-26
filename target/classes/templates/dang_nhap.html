@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="(link unavailable)">
+<head>
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a th:href="@{/}">Trang chủ</a></li>
+            <li><a th:href="@{/thuoc}">Thuốc</a></li>
+            <li><a th:href="@{/dang-nhap}">Đăng nhập</a></li>
+            <li><a th:href="@{/dang-ky}">Đăng ký</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h1>Đăng nhập</h1>
+    <form action="dang-nhap">
+        <input type="text" name="ten" placeholder="Tên đăng nhập">
+        <input type="password" name="matKhau" placeholder="Mật khẩu">
+        <button>Đăng nhập</button>
+    </form>
+</main>
+</body>
+</html>
