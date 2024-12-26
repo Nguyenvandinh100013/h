@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý Người Dùng</title>
+
+</head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+
+  nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  main {
+    padding: 20px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f0f0f0;
+  }
+</style>
+<body>
+<header>
+  <nav>
+    <ul>
+      <li><a href="/admin">Trang chủ</a></li>
+      <li><a href="/admin/user">Quản lý người dùng</a></li>
+      <li><a href="/admin/thuoc">Quản lý thuốc</a></li>
+      <li><a href="/admin/don-hang">Quản lý đơn hàng</a></li>
+      <li><a href="/dang-xuat">Đăng xuất</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <h1>Quản lý Người Dùng</h1>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Tên</th>
+      <th>Email</th>
+      <th>Hành động</th>
+    </tr>
+    <tr th:each="user : ${users}">
+      <td th:text="${(user.id)}"></td>
+      <td th:text="${user.ten}"></td>
+      <td th:text="${user.email}"></td>
+      <td>
+        <a th:href="@{/admin/user/{id}}">Sửa</a>
+        <a th:href="@{/admin/user/xoa/{id}}">Xóa</a>
+      </td>
+    </tr>
+  </table>
+  <a href="/admin/user/them">Thêm người dùng</a>
+</main>
+</body>
+</html>
