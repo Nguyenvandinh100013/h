@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Người Dùng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+<h1>Quản lý Người Dùng</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Tên</th>
+        <th>Email</th>
+        <th>Hành động</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.ten}"></td>
+        <td th:text="${user.email}"></td>
+        <td>
+            <a th:href="@{/admin/user/{id}}">Sửa</a>
+            <a th:href="@{/admin/user/xoa/{id}}">Xóa</a>
+        </td>
+    </tr>
+</table>
+<a href="/admin/user/them">Thêm người dùng</a>
+</body>
+</html>

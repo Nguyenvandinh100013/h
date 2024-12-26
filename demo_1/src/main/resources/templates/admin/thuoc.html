@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="(link unavailable)">
+<head>
+  <title>Quản lý thuốc</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <nav>
+    <ul>
+      <li><a th:href="@{/admin/thuoc}">Quản lý thuốc</a></li>
+      <li><a th:href="@{/admin/nguoi-dung}">Quản lý người dùng</a></li>
+      <li><a th:href="@{/admin/don-hang}">Quản lý đơn hàng</a></li>
+      <li><a th:href="@{/dang-xuat}">Đăng xuất</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <h1>Quản lý thuốc</h1>
+  <table>
+    <tr>
+      <th>Tên thuốc</th>
+      <th>Giá</th>
+      <th>Mô tả</th>
+      <th>Hành động</th>
+    </tr>
+    <tr th:each="thuoc : ${thuocs}">
+      <td th:text="${thuoc.ten}"></td>
+      <td th:text="${thuoc.gia}"></td>
+      <td th:text="${thuoc.moTa}"></td>
+      <td>
+        <a th:href="@{/admin/thuoc/{id}(id=${(link unavailable)})}">Sửa</a>
+        <a th:href="@{/admin/thuoc/xoa/{id}(id=${(link unavailable)})}">Xóa</a>
+      </td>
+    </tr>
+  </table>
+  <a th:href="@{/admin/thuoc/them}">Thêm thuốc</a>
+</main>
+</body>
+</html>
