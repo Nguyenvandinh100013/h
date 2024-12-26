@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Thuốc</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+<h1>Quản lý Thuốc</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Tên thuốc</th>
+        <th>Giá</th>
+        <th>Mô tả</th>
+        <th>Hành động</th>
+    </tr>
+    <tr th:each="thuoc : ${thuocs}">
+        <td th:text="${(thuoc.id)}"></td>
+        <td th:text="${thuoc.ten}"></td>
+        <td th:text="${thuoc.gia}"></td>
+        <td th:text="${thuoc.moTa}"></td>
+        <td>
+            <a th:href="@{/admin/thuoc/{id}}">Sửa</a>
+            <a th:href="@{/admin/thuoc/xoa/{id}}">Xóa</a>
+        </td>
+    </tr>
+</table>
+<a href="/admin/thuoc/them">Thêm thuốc</a>
+</body>
+</html>
